@@ -1,7 +1,7 @@
 # CSC 413 - Project Two - The Interpreter
 
-## Student Name  : Name here
+## Student Name  : Ruxue Jin
 
-## Student ID    : ID here
+## Student ID    : 923092817
 
-## Student Email : Email here
+## Student Email : rjin@sfsu.edu
