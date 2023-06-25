@@ -16,4 +16,8 @@ public class VirtualMachine {
         this.returnAddress = new Stack<>();
         this.programCounter = 0;
     }
+
+    // a list of functions that is going to expose to the ByteCode
+
+
 }
