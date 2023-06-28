@@ -47,5 +47,6 @@ public class Interpreter {
             System.exit(1);
         }
         (new Interpreter(args[0])).run();
+
     }
 }

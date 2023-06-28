@@ -17,6 +17,27 @@ public class VirtualMachine {
         this.programCounter = 0;
     }
 
+    public int push(int valueToPush) {
+        this.runTimeStack.push(valueToPush);
+        return valueToPush;
+    }
+
+    public int pop() {
+        return this.runTimeStack.pop();
+    }
+
+    public int store(int offset) {
+        return this.runTimeStack.store(offset);
+    }
+
+    public int load(int offset) {
+        return this.runTimeStack.load(offset);
+    }
+
+    public void newFrameAt(int numberOfArgs) {
+        this.runTimeStack.newFrameAt(numberOfArgs);
+    }
+
     // a list of functions that is going to expose to the ByteCode
 
 

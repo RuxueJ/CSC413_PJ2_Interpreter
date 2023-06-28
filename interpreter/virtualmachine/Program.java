@@ -1,8 +1,8 @@
 package interpreter.virtualmachine;
 
-import interpreter.bytecodes.ByteCode;
+import interpreter.bytecodes.*;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 public class Program {
 
@@ -21,7 +21,7 @@ public class Program {
      * @return size of program
      */
     public int getSize() {
-        return 0;
+        return this.program.size();
     }
 
     /**
@@ -43,12 +43,29 @@ public class Program {
 
     /**
      * Makes multiple passes through the program ArrayList resolving
-     * addrss for Goto,Call and FalseBranch bytecodes. These bytecodes
+     * address for Goto,Call and FalseBranch bytecodes. These bytecodes
      * can only jump to Label codes that have a matching label value.
      * HINT: make note of what type of data-structure ByteCodes are stored in.
-     * **** METHOD SIGNATURE CANNOT BE CAHNGED *****
+     * **** METHOD SIGNATURE CANNOT BE CHANGED *****
      */
     public void resolveAddress() {
+        HashMap<String, Integer> labelHM = new HashMap<>();
+        for(int i = 0; i < this.program.size(); i++){
+            ByteCode bc = this.program.get(i);
+
+            if(bc instanceof LabelCode byteCode){
+                labelHM.put(byteCode.getLabel(),i);
+            }
+        }
+
+        for (ByteCode bc : this.program) {
+            if (bc instanceof GotoCode || bc instanceof FalseBranchCode || bc instanceof CallCode) {
+                JumpCode jc = (JumpCode) bc;
+                String label = jc.getLable();
+                int address = labelHM.get(label);
+                jc.setAddress(address);
+            }
+        }
 
     }
 }

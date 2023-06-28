@@ -3,6 +3,7 @@ package interpreter.virtualmachine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
+import java.util.Vector;
 
 class RunTimeStack {
 
@@ -20,21 +21,13 @@ class RunTimeStack {
     public String dump() {
         String dumpResult = new String();
         int frameNumber = this.framePointer.size();
-        Stack<Integer> reverseStack = new Stack<>();
-        for (int i = 0; i < frameNumber; i++) {
-            reverseStack.push(this.framePointer.pop());
-        }
-        List<Integer> frameBoundary = new ArrayList<>(frameNumber);
-        for (int i = 0; i < frameNumber; i++) {
-            int boundaryIndex = reverseStack.pop();
-            frameBoundary.add(boundaryIndex);
-            this.framePointer.push(boundaryIndex);
-        }
+
+        Vector<Integer> vector = new Vector<>(this.framePointer);
         for (int i = 0; i < frameNumber - 1; i++) {
-            dumpResult += this.runTimeStack.subList(frameBoundary.get(i), frameBoundary.get(i + 1))  ;
+            dumpResult += this.runTimeStack.subList(vector.get(i), vector.get(i + 1));
         }
 
-        dumpResult += this.runTimeStack.subList(frameBoundary.get(frameNumber - 1), this.runTimeStack.size());
+        dumpResult += this.runTimeStack.subList(vector.get(frameNumber - 1), this.runTimeStack.size());
         return dumpResult;
 
     }
@@ -49,7 +42,15 @@ class RunTimeStack {
     }
 
     public int pop() {
+
+        assert runTimeStack.size() > framePointer.peek();
         return this.runTimeStack.remove(this.runTimeStack.size() - 1);
+
+//        if(runTimeStack.size() > framePointer.peek()){
+//            return this.runTimeStack.remove(this.runTimeStack.size() - 1);
+//        }else {
+//            return 0;
+//        }
     }
 
     public int store(int offsetFromFramePointer) {
@@ -97,13 +98,15 @@ class RunTimeStack {
         System.out.println(rts.load(1));
         System.out.println(rts.load(2));
         rts.newFrameAt(3);
+
         rts.push(5);
         rts.push(6);
         rts.push(7);
         rts.push(8);
-
+        System.out.println("================");
+        System.out.println(rts.dump());
         rts.newFrameAt(2);
-
+        System.out.println(rts.dump());
 
         System.out.println("runtimestack: ");
         rts.runTimeStack.forEach(v -> System.out.print(v));
