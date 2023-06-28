@@ -24,4 +24,8 @@ public class GotoCode implements JumpCode {
     public void setAddress(int address) {
         this.resolvedAddress = address;
     }
+    @Override
+    public String toString() {
+        return "GOTO " + this.label;
+    }
 }
