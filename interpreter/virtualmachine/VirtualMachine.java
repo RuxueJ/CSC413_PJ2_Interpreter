@@ -38,6 +38,14 @@ public class VirtualMachine {
         this.runTimeStack.newFrameAt(numberOfArgs);
     }
 
+    public void executeProgram() {
+    }
+
+    public void gotoAddress(int resolvedAddress) {
+        this.programCounter = resolvedAddress;
+    }
+
+
     // a list of functions that is going to expose to the ByteCode
 
 

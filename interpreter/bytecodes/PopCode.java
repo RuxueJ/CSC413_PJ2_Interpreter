@@ -20,9 +20,9 @@ public class PopCode implements ByteCode {
         return "POP " + numbersToPop;
     }
 
-    public static void main(String[] args) {
-        String[] x = {"POP","1"};
-        PopCode c = new PopCode(x);
-        System.out.println(c);
-    }
+//    public static void main(String[] args) {
+//        String[] x = {"POP","1"};
+//        PopCode c = new PopCode(x);
+//        System.out.println(c);
+//    }
 }

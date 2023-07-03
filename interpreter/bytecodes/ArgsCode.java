@@ -18,9 +18,9 @@ public class ArgsCode implements ByteCode {
         return "ARGS " + this.numberOfArgs;
     }
 
-    public static void main(String[] args) {
-        String[] x = {"ARGS","2"};
-        ArgsCode c = new ArgsCode(x);
-        System.out.println(c);
-    }
+//    public static void main(String[] args) {
+//        String[] x = {"ARGS","2"};
+//        ArgsCode c = new ArgsCode(x);
+//        System.out.println(c);
+//    }
 }

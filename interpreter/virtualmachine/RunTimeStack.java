@@ -86,49 +86,49 @@ class RunTimeStack {
 
     }
 
-    public static void main(String[] args) {
-        RunTimeStack rts = new RunTimeStack();
-        rts.push(1);
-        rts.push(2);
-        rts.push(3);
-        rts.push(4);
-
-        System.out.println(rts.store(2));
-        System.out.println(rts.load(0));
-        System.out.println(rts.load(1));
-        System.out.println(rts.load(2));
-        rts.newFrameAt(3);
-
-        rts.push(5);
-        rts.push(6);
-        rts.push(7);
-        rts.push(8);
-        System.out.println("================");
-        System.out.println(rts.dump());
-        rts.newFrameAt(2);
-        System.out.println(rts.dump());
-
-        System.out.println("runtimestack: ");
-        rts.runTimeStack.forEach(v -> System.out.print(v));
-        System.out.println("\n");
-        System.out.println("framepointer: ");
-        rts.framePointer.forEach(v -> System.out.print(v));
-        System.out.println("\n");
-
-        System.out.println(rts.dump());
-        rts.popFrame();
-
-
-        System.out.println("runtimestack: ");
-        rts.runTimeStack.forEach(v -> System.out.print(v));
-        System.out.println("\n");
-        System.out.println("framepointer: ");
-        rts.framePointer.forEach(v -> System.out.print(v));
-        System.out.println("\n");
-
-        System.out.println(rts.dump());
-
-        rts.popFrame();
-        System.out.println(rts.dump());
-    }
+//    public static void main(String[] args) {
+//        RunTimeStack rts = new RunTimeStack();
+//        rts.push(1);
+//        rts.push(2);
+//        rts.push(3);
+//        rts.push(4);
+//
+//        System.out.println(rts.store(2));
+//        System.out.println(rts.load(0));
+//        System.out.println(rts.load(1));
+//        System.out.println(rts.load(2));
+//        rts.newFrameAt(3);
+//
+//        rts.push(5);
+//        rts.push(6);
+//        rts.push(7);
+//        rts.push(8);
+//        System.out.println("================");
+//        System.out.println(rts.dump());
+//        rts.newFrameAt(2);
+//        System.out.println(rts.dump());
+//
+//        System.out.println("runtimestack: ");
+//        rts.runTimeStack.forEach(v -> System.out.print(v));
+//        System.out.println("\n");
+//        System.out.println("framepointer: ");
+//        rts.framePointer.forEach(v -> System.out.print(v));
+//        System.out.println("\n");
+//
+//        System.out.println(rts.dump());
+//        rts.popFrame();
+//
+//
+//        System.out.println("runtimestack: ");
+//        rts.runTimeStack.forEach(v -> System.out.print(v));
+//        System.out.println("\n");
+//        System.out.println("framepointer: ");
+//        rts.framePointer.forEach(v -> System.out.print(v));
+//        System.out.println("\n");
+//
+//        System.out.println(rts.dump());
+//
+//        rts.popFrame();
+//        System.out.println(rts.dump());
+//    }
 }

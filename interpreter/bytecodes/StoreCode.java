@@ -27,9 +27,9 @@ public class StoreCode implements ByteCode {
         return base;
     }
 
-    public static void main(String[] args) {
-        String[] x = {"STORE","1", "K"};
-        StoreCode c = new StoreCode(x);
-        System.out.println(c);
-    }
+//    public static void main(String[] args) {
+//        String[] x = {"STORE","1", "K"};
+//        StoreCode c = new StoreCode(x);
+//        System.out.println(c);
+//    }
 }

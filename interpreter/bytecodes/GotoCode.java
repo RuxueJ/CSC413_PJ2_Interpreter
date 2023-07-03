@@ -12,7 +12,7 @@ public class GotoCode implements JumpCode {
 
     @Override
     public void execute(VirtualMachine vm) {
-
+        vm.gotoAddress(this.resolvedAddress);
     }
 
     @Override

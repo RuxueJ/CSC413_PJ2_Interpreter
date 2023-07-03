@@ -1,7 +1,9 @@
 package interpreter.virtualmachine;
 
 import interpreter.bytecodes.*;
+import interpreter.loaders.ByteCodeLoader;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 public class Program {
@@ -13,6 +15,7 @@ public class Program {
      * ArrayList
      */
     public Program() {
+        program = new ArrayList<>();
 
     }
 
@@ -30,7 +33,8 @@ public class Program {
      * @return a bytecode.
      */
     public ByteCode getCode(int programCounter) {
-        return null;
+
+        return this.program.get(programCounter);
     }
 
     /**
@@ -38,7 +42,7 @@ public class Program {
      * @param c bytecode to be added
      */
     public void addByteCode(ByteCode c) {
-
+        this.program.add(c);
     }
 
     /**

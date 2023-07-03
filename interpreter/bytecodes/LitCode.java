@@ -27,9 +27,9 @@ public class LitCode implements ByteCode {
         return base;
     }
 
-    public static void main(String[] args) {
-        String[] x = {"LIT","1", "J"};
-        LitCode c = new LitCode(x);
-        System.out.println(c);
-    }
+//    public static void main(String[] args) {
+//        String[] x = {"LIT","1", "J"};
+//        LitCode c = new LitCode(x);
+//        System.out.println(c);
+//    }
 }
