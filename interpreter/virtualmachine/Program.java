@@ -6,6 +6,8 @@ import interpreter.loaders.ByteCodeLoader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 public class Program {
 
     private List<ByteCode> program;
@@ -61,6 +63,16 @@ public class Program {
                 labelHM.put(byteCode.getLabel(),i);
             }
         }
+
+        // print out the resolved address map
+//        for (Map.Entry<String, Integer> entry : labelHM.entrySet()) {
+//            String key = entry.getKey();
+//            Integer value = entry.getValue();
+//            System.out.println(key + ": " + value);
+//        }
+
+
+
 
         for (ByteCode bc : this.program) {
             if (bc instanceof GotoCode || bc instanceof FalseBranchCode || bc instanceof CallCode) {

@@ -7,7 +7,7 @@ public interface ByteCode {
     void execute(VirtualMachine vm);
     static ByteCode getNewInstance(String type, String[] args) {
         return switch (type) {
-            case "LIFT" -> new LitCode(args);
+            case "LIT" -> new LitCode(args);
             case "HALT" -> new HaltCode(args);
             case "POP" -> new PopCode(args);
             case "STORE" -> new StoreCode(args);

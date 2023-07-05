@@ -39,6 +39,7 @@ public final class ByteCodeLoader {
 //                System.out.println(line);
                 items = line.split("\\s+");
                 bytecodename = items[0];
+//                System.out.println(bytecodename);
                 bc = ByteCode.getNewInstance(bytecodename, items);
                 program.addByteCode(bc);
             }

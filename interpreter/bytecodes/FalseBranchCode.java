@@ -13,7 +13,11 @@ public class FalseBranchCode implements JumpCode {
 
     @Override
     public void execute(VirtualMachine vm) {
-        vm.gotoAddress(this.resolvedAddress);
+        int topValue = vm.pop();
+        if(topValue == 0){
+            vm.gotoAddress(this.resolvedAddress);
+        }
+
     }
 
     @Override

@@ -43,14 +43,14 @@ class RunTimeStack {
 
     public int pop() {
 
-        assert runTimeStack.size() > framePointer.peek();
-        return this.runTimeStack.remove(this.runTimeStack.size() - 1);
+//        assert runTimeStack.size() > framePointer.peek();
+//        return this.runTimeStack.remove(this.runTimeStack.size() - 1);
 
-//        if(runTimeStack.size() > framePointer.peek()){
-//            return this.runTimeStack.remove(this.runTimeStack.size() - 1);
-//        }else {
-//            return 0;
-//        }
+        if(runTimeStack.size() > framePointer.peek()){
+            return this.runTimeStack.remove(this.runTimeStack.size() - 1);
+        }else {
+            return 0;
+        }
     }
 
     public int store(int offsetFromFramePointer) {
