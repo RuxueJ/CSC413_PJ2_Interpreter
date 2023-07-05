@@ -22,6 +22,12 @@ public class LoadCode implements ByteCode {
         if(this.id != null){
             base += " " + this.id ;
         }
+        base += "\t" + "<" + "load ";
+        if(this.id != null){
+            base += " " + this.id + ">";
+        }else{
+            base += ">";
+        }
         return base;
     }
 

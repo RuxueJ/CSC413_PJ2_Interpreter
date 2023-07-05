@@ -25,6 +25,7 @@ class RunTimeStack {
         Vector<Integer> vector = new Vector<>(this.framePointer);
         for (int i = 0; i < frameNumber - 1; i++) {
             dumpResult += this.runTimeStack.subList(vector.get(i), vector.get(i + 1));
+            dumpResult += " ";
         }
 
         dumpResult += this.runTimeStack.subList(vector.get(frameNumber - 1), this.runTimeStack.size());
@@ -35,6 +36,12 @@ class RunTimeStack {
     public int push(int value) {
         this.runTimeStack.add(value);
         return value;
+    }
+
+    public List<Integer>getCurrentFrame(){
+        List<Integer> args = new ArrayList<>();
+       args = runTimeStack.subList(framePointer.peek(), runTimeStack.size());
+       return args;
     }
 
     public int peek() {

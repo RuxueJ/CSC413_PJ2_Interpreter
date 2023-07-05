@@ -1,5 +1,6 @@
 package interpreter.bytecodes;
 
+import interpreter.Interpreter;
 import interpreter.virtualmachine.VirtualMachine;
 
 import java.util.List;
@@ -7,26 +8,24 @@ import java.util.List;
 public class CallCode implements JumpCode {
     private String id;
     private String base_id;
-    private int args_number;
+
 
     private int resolvedAddress;
-    private List<Integer> argsList;
+    private List<Integer> argsList ;
 
     public CallCode(String[] args) {
         this.id = args[1];
-//        int indexStart = id.indexOf("<<");
-//        int indexEnd = id.indexOf(">>");
-//        String number = id.substring(indexStart+2,indexEnd);
-//        args_number = Integer.parseInt(number);
-//        for(int i = 0; i < args_number; i++){
-//
-//        }
-
-
+        if(id.contains("<<")){
+            int index = id.indexOf("<<");
+            base_id = id.substring(0,index);
+        }else{
+            base_id = id;
+        }
     }
 
     @Override
     public void execute(VirtualMachine vm) {
+        this.argsList = vm.getArgs();
         vm.saveReturnAddress();
         vm.gotoAddress(this.resolvedAddress);
     }
@@ -44,6 +43,7 @@ public class CallCode implements JumpCode {
     @Override
     public String toString() {
 
-        return "CALL " + this.id;
+        String arguments = this.argsList.toString().substring(1,this.argsList.toString().length()-1);
+        return "CALL " + this.id + "\t" + base_id + "(" +arguments + ")";
     }
 }

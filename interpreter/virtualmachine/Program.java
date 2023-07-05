@@ -75,8 +75,7 @@ public class Program {
 
 
         for (ByteCode bc : this.program) {
-            if (bc instanceof GotoCode || bc instanceof FalseBranchCode || bc instanceof CallCode) {
-                JumpCode jc = (JumpCode) bc;
+            if (bc instanceof JumpCode jc) {
                 String label = jc.getLable();
                 int address = labelHM.get(label);
                 jc.setAddress(address);

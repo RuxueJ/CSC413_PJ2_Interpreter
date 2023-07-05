@@ -4,6 +4,7 @@ import interpreter.bytecodes.ByteCode;
 import interpreter.bytecodes.DumpCode;
 import interpreter.bytecodes.HaltCode;
 
+import java.util.List;
 import java.util.Stack;
 
 public class VirtualMachine {
@@ -90,6 +91,11 @@ public class VirtualMachine {
 
     public void popFrame() {
         this.runTimeStack.popFrame();
+    }
+
+    public List<Integer> getArgs() {
+        return this.runTimeStack.getCurrentFrame();
+
     }
 
 
