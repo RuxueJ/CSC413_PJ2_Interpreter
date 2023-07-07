@@ -39,7 +39,7 @@ class RunTimeStack {
     }
 
     public List<Integer>getCurrentFrame(){
-        List<Integer> args = new ArrayList<>();
+        List<Integer> args ;
        args = runTimeStack.subList(framePointer.peek(), runTimeStack.size());
        return args;
     }
